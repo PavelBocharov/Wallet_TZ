@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/001__create_wallet_table.yaml
+  - changeSet:
+      id: 1
+      author: marolok
+      changes:
+        - createTable:
+            tableName: wallet
+            columns:
+              - column:
+                  name: wallet_id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: amount
+                  type: DECIMAL
+      rollback:
+        - delete:
+            tableName: wallet

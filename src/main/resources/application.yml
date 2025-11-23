@@ -1,0 +1,20 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: wallet_tz
+  datasource:
+    url: jdbc:postgresql://192.168.3.3:5432/wallet
+    username: test_user_login
+    password: test_user_pwd
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      format_sql: false
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  liquibase:
+    enabled: true

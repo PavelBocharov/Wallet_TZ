@@ -1,0 +1,37 @@
+services:
+  walletapp:
+#    image: marolok/wallet_app:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DB_USER=test_user_login
+      - DB_PASSWORD=test_user_pwd
+      - DB_NAME=wallet
+      - DB_URL=jdbc:postgresql://pgdb:5432/wallet
+    ports:
+      - 8080:8080
+    networks:
+      - bridge
+
+  pgdb:
+    image: postgres:14-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=test_user_login
+      - POSTGRES_PASSWORD=test_user_pwd
+      - POSTGRES_DB=wallet
+    ports:
+      - 5432:5432
+    networks:
+      - bridge
+      - pgdbnet
+#    volumes:
+#      - /home/marolok/Progs/postgresql:/var/lib/postgresql/data
+
+networks:
+  bridge:
+    driver: bridge
+  pgdbnet:
+    external: false
+
