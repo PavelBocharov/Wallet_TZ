@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.testcontainers.shaded.org.awaitility.Awaitility.await;
 
 @Slf4j
-@Disabled("Full positive test. Need docker.")
+//@Disabled("Full positive test. Need docker.")
 @Testcontainers
 class WalletControllerIntegrationTest extends InitContainers {
 

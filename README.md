@@ -7,6 +7,12 @@ mvn clean install -U
 docker compose up
 ```
 
+### Start integration test - Testcontainers
+
+``` bash
+mvn test -Dtest=WalletControllerIntegrationTest
+```
+
 ## 📚 Project stack
 
 - Language - Java 17
@@ -22,4 +28,5 @@ docker compose up
     - Integration test - Testcontainers
 
 ## 📊 Test coverage
+
 ![img.png](temp/img.png)
